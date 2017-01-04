@@ -1,4 +1,4 @@
-<md-list-item>
+<md-list-item ng-click="$ctrl.onSelect({contact: $ctrl.contact})">
 	<img class="md-avatar" ng-src="{{$ctrl.contact.avatar}}"/>
 	<span>{{$ctrl.contact.name}}</span>
 </md-list-item>

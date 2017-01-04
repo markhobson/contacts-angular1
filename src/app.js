@@ -7,17 +7,22 @@ angular.module('contacts', ['ngMaterial'])
 				{name: 'Randy Horn', avatar: 'https://www.gravatar.com/avatar/ed8fc01d29a00912ba41555210cd697e'},
 				{name: 'Zane High', avatar: 'https://www.gravatar.com/avatar/ed8fc01d29a00912ba41555210cd697e'}
 			];
+			this.yo = function(contact) {
+				console.log('yo ' + contact.name);
+			}
 		}
 	})
 	.component('contactList', {
 		templateUrl: 'src/contactList.html',
 		bindings: {
-			contacts: '<'
+			contacts: '<',
+			onSelect: '&'
 		}
 	})
 	.component('contactListItem', {
 		templateUrl: 'src/contactListItem.html',
 		bindings: {
-			contact: '<'
+			contact: '<',
+			onSelect: '&'
 		}
 	});

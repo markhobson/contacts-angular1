@@ -14,4 +14,10 @@ angular.module('contacts', ['ngMaterial'])
 		bindings: {
 			contacts: '<'
 		}
+	})
+	.component('contactListItem', {
+		templateUrl: 'src/contactListItem.html',
+		bindings: {
+			contact: '<'
+		}
 	});

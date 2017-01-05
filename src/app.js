@@ -16,6 +16,7 @@ angular.module('contacts', ['ngMaterial'])
 		templateUrl: 'src/contactList.html',
 		bindings: {
 			contacts: '<',
+			selectedContact: '<',
 			onSelect: '&'
 		}
 	})
@@ -23,6 +24,7 @@ angular.module('contacts', ['ngMaterial'])
 		templateUrl: 'src/contactListItem.html',
 		bindings: {
 			contact: '<',
+			selected: '<',
 			onSelect: '&'
 		}
 	})

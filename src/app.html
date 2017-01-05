@@ -5,7 +5,10 @@
 </md-toolbar>
 <section layout="row">
 	<md-sidenav class="md-sidenav-left" md-is-locked-open="true" md-whiteframe="4">
-		<contact-list contacts="$ctrl.contacts" on-select="$ctrl.select(contact)"></contact-list>
+		<contact-list contacts="$ctrl.contacts"
+			selected-contact="$ctrl.selectedContact"
+			on-select="$ctrl.select(contact)">
+		</contact-list>
 	</md-sidenav>
 	<md-content layout-padding>
 		<contact-form ng-if="$ctrl.selectedContact" contact="$ctrl.selectedContact"></contact-form>

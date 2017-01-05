@@ -1,4 +1,5 @@
-<md-list-item ng-click="$ctrl.onSelect({contact: $ctrl.contact})">
+<md-list-item md-colors="{'background' : $ctrl.selected ? 'primary' : 'grey-A100'}"
+	ng-click="$ctrl.onSelect({contact: $ctrl.contact})">
 	<img class="md-avatar" ng-src="{{$ctrl.contact.avatar}}"/>
 	<span>{{$ctrl.contact.name}}</span>
 </md-list-item>

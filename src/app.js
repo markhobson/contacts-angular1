@@ -35,6 +35,13 @@ angular.module('contacts', ['ngMaterial'])
 	})
 	.component('contactForm', {
 		templateUrl: 'src/contactForm.html',
+		controller: function() {
+			this.$onChanges = function(changes) {
+				this.editableContact = {
+					name: this.contact.name
+				};
+			};
+		},
 		bindings: {
 			contact: '<'
 		}

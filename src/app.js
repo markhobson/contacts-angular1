@@ -7,8 +7,8 @@ angular.module('contacts', ['ngMaterial'])
 				{name: 'Randy Horn', avatar: 'https://www.gravatar.com/avatar/ed8fc01d29a00912ba41555210cd697e'},
 				{name: 'Zane High', avatar: 'https://www.gravatar.com/avatar/ed8fc01d29a00912ba41555210cd697e'}
 			];
-			this.yo = function(contact) {
-				console.log('yo ' + contact.name);
+			this.select = function(contact) {
+				this.selectedContact = contact;
 			}
 		}
 	})
@@ -24,5 +24,11 @@ angular.module('contacts', ['ngMaterial'])
 		bindings: {
 			contact: '<',
 			onSelect: '&'
+		}
+	})
+	.component('contactForm', {
+		templateUrl: 'src/contactForm.html',
+		bindings: {
+			contact: '<'
 		}
 	});

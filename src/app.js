@@ -24,12 +24,12 @@ angular.module('contacts', ['ngMaterial'])
 			this.save = function(contact) {
 				contactRepository.save(contact);
 				this.select(contact);
-				$mdToast.showSimple('Contact saved');
+				$mdToast.showSimple(contact.name + ' saved');
 			}
 			this.delete = function(contact) {
 				contactRepository.delete(contact);
 				this.select();
-				$mdToast.showSimple('Contact deleted');
+				$mdToast.showSimple(contact.name + ' deleted');
 			}
 		}]
 	})

@@ -3,6 +3,10 @@
 		<span>Contacts</span>
 	</div>
 </md-toolbar>
-<md-content>
-	<contact-list contacts="$ctrl.contacts" on-select="$ctrl.yo(contact)"></contact-list>
-</md-content>
+<section layout="row">
+	<md-sidenav class="md-sidenav-left" md-is-locked-open="true" md-whiteframe="4">
+		<contact-list contacts="$ctrl.contacts" on-select="$ctrl.yo(contact)"></contact-list>
+	</md-sidenav>
+	<md-content layout-padding>
+	</md-content>
+</section>

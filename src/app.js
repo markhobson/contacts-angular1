@@ -8,6 +8,9 @@ angular.module('contacts', ['ngMaterial'])
 			},
 			save: function(contact) {
 				this.contacts[contact.id] = contact;
+			},
+			delete: function(contact) {
+				delete this.contacts[contact.id];
 			}
 		};
 	})
@@ -22,6 +25,11 @@ angular.module('contacts', ['ngMaterial'])
 				contactRepository.save(contact);
 				this.select(contact);
 				$mdToast.showSimple('Contact saved');
+			}
+			this.delete = function(contact) {
+				contactRepository.delete(contact);
+				this.select();
+				$mdToast.showSimple('Contact deleted');
 			}
 		}]
 	})
@@ -59,9 +67,13 @@ angular.module('contacts', ['ngMaterial'])
 				this.onSave({contact: this.editableContact});
 				edit(this.editableContact);
 			};
+			this.delete = function() {
+				this.onDelete({contact: this.editableContact});
+			};
 		},
 		bindings: {
 			contact: '<',
-			onSave: '&'
+			onSave: '&',
+			onDelete: '&'
 		}
 	});

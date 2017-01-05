@@ -13,7 +13,8 @@
 	<md-content flex>
 		<contact-form ng-if="$ctrl.selectedContact"
 			contact="$ctrl.selectedContact"
-			on-save="$ctrl.save(contact)">
+			on-save="$ctrl.save(contact)"
+			on-delete="$ctrl.delete(contact)">
 		</contact-form>
 	</md-content>
 </section>

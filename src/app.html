@@ -11,6 +11,9 @@
 		</contact-list>
 	</md-sidenav>
 	<md-content flex>
-		<contact-form ng-if="$ctrl.selectedContact" contact="$ctrl.selectedContact"></contact-form>
+		<contact-form ng-if="$ctrl.selectedContact"
+			contact="$ctrl.selectedContact"
+			on-save="$ctrl.save(contact)">
+		</contact-form>
 	</md-content>
 </section>

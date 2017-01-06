@@ -1,5 +1,9 @@
 <md-list-item md-colors="{'background' : $ctrl.selected ? 'primary' : 'grey-A100'}"
-	ng-click="$ctrl.onSelect({contact: $ctrl.contact})">
-	<img class="md-avatar" ng-src="{{$ctrl.contact.avatar}}"/>
-	<span>{{$ctrl.contact.name}}</span>
+	ng-click="$ctrl.onSelect({contact: $ctrl.contact})"
+	ng-switch="!!$ctrl.contact.avatar">
+	<img class="md-avatar" ng-src="{{$ctrl.contact.avatar}}" ng-switch-when="true"/>
+	<span ng-switch-default>
+		<md-icon class="md-avatar-icon" md-svg-src="node_modules/material-design-icons/social/svg/production/ic_person_48px.svg"></md-icon>
+	</span>
+	<span>{{$ctrl.contact.name || 'Unnamed'}}</span>
 </md-list-item>

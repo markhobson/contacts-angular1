@@ -1,7 +1,7 @@
 angular.module('contacts')
 	.component('contactManager', {
 		templateUrl: 'src/contactManager.html',
-		controller: ['contactRepository', '$mdToast', function(contactRepository, $mdToast) {
+		controller: ['contactRepository', '$mdDialog', '$mdToast', function(contactRepository, $mdDialog, $mdToast) {
 			this.contacts = contactRepository.contacts;
 			this.select = function(contact) {
 				this.selectedContact = contact;
@@ -10,11 +10,22 @@ angular.module('contacts')
 				contactRepository.save(contact);
 				this.select(contact);
 				$mdToast.showSimple(contact.name + ' saved');
-			}
+			};
 			this.delete = function(contact) {
-				contactRepository.delete(contact);
-				this.select();
-				$mdToast.showSimple(contact.name + ' deleted');
-			}
+				var ctrl = this;
+				var dialog = $mdDialog.confirm()
+					.title('Delete ' + contact.name)
+					.textContent('Are you sure?')
+					.ok('Delete')
+					.cancel('Cancel');
+				
+				$mdDialog.show(dialog).then(function() {
+					contactRepository.delete(contact);
+					ctrl.select();
+					$mdToast.showSimple(contact.name + ' deleted');
+				}).catch(function() {
+					// no-op
+				});
+			};
 		}]
 	});

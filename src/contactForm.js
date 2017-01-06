@@ -7,7 +7,8 @@ angular.module('contacts')
 				ctrl.editableContact = {
 					id: contact.id,
 					name: contact.name,
-					avatar: contact.avatar
+					avatar: contact.avatar,
+					email: contact.email
 				};
 			};
 			this.$onChanges = function() {

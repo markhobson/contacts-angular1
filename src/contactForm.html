@@ -1,14 +1,21 @@
 <md-card>
 	<md-card-content>
-		<form>
+		<form name="contactForm">
 			<md-input-container class="md-block">
 				<label>Name</label>
 				<input ng-model="$ctrl.editableContact.name"/>
+			</md-input-container>
+			<md-input-container class="md-block">
+				<label>Email</label>
+				<input name="email" type="email" ng-model="$ctrl.editableContact.email"/>
+				<div ng-messages="contactForm.email.$error" role="alert">
+					<div ng-message="email">This doesn't look like an email address.</div>
+				</div>
 			</md-input-container>
 		</form>
 	</md-card-content>
 	<md-card-actions layout="row" layout-align="end">
 		<md-button ng-click="$ctrl.delete()">Delete</md-button>
-		<md-button class="md-raised md-primary" ng-click="$ctrl.save()">Save</md-button>
+		<md-button class="md-raised md-primary" ng-click="$ctrl.save()" ng-disabled="contactForm.$invalid">Save</md-button>
 	</md-card-actions>
 </md-card>

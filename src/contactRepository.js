@@ -15,9 +15,21 @@ angular.module('contacts')
 			}
 		};
 
-		repository.add({name: 'Chip Smith', avatar: 'https://www.gravatar.com/avatar/ed8fc01d29a00912ba41555210cd697e'});
-		repository.add({name: 'Randy Horn', avatar: 'https://www.gravatar.com/avatar/ed8fc01d29a00912ba41555210cd697e'});
-		repository.add({name: 'Zane High', avatar: 'https://www.gravatar.com/avatar/ed8fc01d29a00912ba41555210cd697e'});
+		repository.add({
+			name: 'Chip Smith',
+			avatar: 'https://www.gravatar.com/avatar/ed8fc01d29a00912ba41555210cd697e',
+			email: 'chip@smith.com'
+		});
+		repository.add({
+			name: 'Randy Horn',
+			avatar: 'https://www.gravatar.com/avatar/ed8fc01d29a00912ba41555210cd697e',
+			email: 'randy@horn.com'
+		});
+		repository.add({
+			name: 'Zane High',
+			avatar: 'https://www.gravatar.com/avatar/ed8fc01d29a00912ba41555210cd697e',
+			email: 'zane@high.com'
+		});
 
 		return repository;
 	});

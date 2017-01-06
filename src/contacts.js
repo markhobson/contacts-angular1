@@ -1,1 +1,1 @@
-angular.module('contacts', ['ngMaterial']);
+angular.module('contacts', ['ngMaterial', 'ngMessages']);

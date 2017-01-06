@@ -1,6 +1,6 @@
-angular.module('contacts', ['ngMaterial'])
-	.component('app', {
-		templateUrl: 'src/app.html',
+angular.module('contacts')
+	.component('contactManager', {
+		templateUrl: 'src/contactManager.html',
 		controller: ['contactRepository', '$mdToast', function(contactRepository, $mdToast) {
 			this.contacts = contactRepository.contacts;
 			this.select = function(contact) {

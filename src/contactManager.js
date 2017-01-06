@@ -6,6 +6,11 @@ angular.module('contacts')
 			this.select = function(contact) {
 				this.selectedContact = contact;
 			};
+			this.add = function() {
+				var contact = {};
+				contactRepository.add(contact);
+				this.select(contact);
+			};
 			this.save = function(contact) {
 				contactRepository.save(contact);
 				this.select(contact);

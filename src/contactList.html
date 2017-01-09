@@ -1,5 +1,5 @@
 <md-list>
-	<contact-list-item ng-repeat="contact in $ctrl.contacts"
+	<contact-list-item ng-repeat="contact in $ctrl.contacts | orderBy: 'name'"
 		contact="contact"
 		selected="contact === $ctrl.selectedContact"
 		on-select="$ctrl.onSelect({contact: contact})">

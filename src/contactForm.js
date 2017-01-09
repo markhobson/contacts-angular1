@@ -4,12 +4,7 @@ angular.module('contacts')
 		controller: function() {
 			var ctrl = this;
 			var edit = function(contact) {
-				ctrl.editableContact = {
-					id: contact.id,
-					name: contact.name,
-					avatar: contact.avatar,
-					email: contact.email
-				};
+				ctrl.editableContact = angular.copy(contact);
 			};
 			this.$onChanges = function() {
 				edit(this.contact);

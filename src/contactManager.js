@@ -1,8 +1,11 @@
 angular.module('contacts')
 	.component('contactManager', {
 		templateUrl: 'src/contactManager.html',
-		controller: ['contactRepository', '$mdDialog', '$mdToast', function(contactRepository, $mdDialog, $mdToast) {
-			this.contacts = contactRepository.contacts;
+		controller: ['contactRepository', '$mdDialog', '$mdToast', '$scope', function(contactRepository, $mdDialog, $mdToast, $scope) {
+			var ctrl = this;
+			$scope.$watch(contactRepository.getAll, function(newValue) {
+				ctrl.contacts = newValue;
+			}, true);
 			this.select = function(contact) {
 				this.selectedContact = contact;
 			};

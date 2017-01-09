@@ -3,7 +3,9 @@ angular.module('contacts')
 		var nextId = 0;
 		var contacts = {};
 		var repository = {
-			contacts: contacts,
+			getAll: function() {
+				return Object.values(contacts);
+			},
 			add: function(contact) {
 				contact.id = nextId++;
 				contacts[contact.id] = contact;

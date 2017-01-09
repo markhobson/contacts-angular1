@@ -6,13 +6,16 @@ angular.module('contacts', ['ngMaterial', 'ngMessages', 'ui.router'])
 			.state({
 				name: 'main',
 				url: '/',
-				template: '<contact-manager></contact-manager>'
+				component: 'contactManager'
 			})
 			.state({
 				name: 'contact',
 				url: '/contact/:contactId',
-				template: function(stateParams) {
-					return '<contact-manager contact-id="' + stateParams.contactId + '"></contact-manager>';
+				component: 'contactManager',
+				resolve: {
+					contactId: ['$transition$', function($transition$) {
+						return $transition$.params().contactId;
+					}]
 				}
 			});
 	}]);

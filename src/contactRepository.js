@@ -1,17 +1,18 @@
 angular.module('contacts')
 	.factory('contactRepository', function() {
+		var nextId = 0;
+		var contacts = {};
 		var repository = {
-			nextId: 0,
-			contacts: {},
+			contacts: contacts,
 			add: function(contact) {
-				contact.id = this.nextId++;
-				this.contacts[contact.id] = contact;
+				contact.id = nextId++;
+				contacts[contact.id] = contact;
 			},
 			save: function(contact) {
-				this.contacts[contact.id] = contact;
+				contacts[contact.id] = contact;
 			},
 			delete: function(contact) {
-				delete this.contacts[contact.id];
+				delete contacts[contact.id];
 			}
 		};
 

@@ -3,7 +3,10 @@
 		<form name="contactForm">
 			<md-input-container class="md-block">
 				<label>Name</label>
-				<input ng-model="$ctrl.editableContact.name"/>
+				<input name="name" ng-model="$ctrl.editableContact.name" required/>
+				<div ng-messages="contactForm.name.$error" role="alert">
+					<div ng-message="required">Everyone needs a name.</div>
+				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>Email</label>

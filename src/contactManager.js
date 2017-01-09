@@ -35,5 +35,12 @@ angular.module('contacts')
 					// no-op
 				});
 			};
-		}]
+			this.$onInit = function() {
+				var contact = contactRepository.get(this.contactId);
+				this.select(contact);
+			};
+		}],
+		bindings: {
+			contactId: '<'
+		}
 	});

@@ -3,6 +3,9 @@ angular.module('contacts')
 		var nextId = 0;
 		var contacts = {};
 		var repository = {
+			get: function(id) {
+				return contacts[id];
+			},
 			getAll: function() {
 				return Object.values(contacts);
 			},

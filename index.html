@@ -8,6 +8,7 @@
 		<script src="node_modules/angular-animate/angular-animate.js"></script>
 		<script src="node_modules/angular-material/angular-material.js"></script>
 		<script src="node_modules/angular-messages/angular-messages.js"></script>
+		<script src="node_modules/angular-route/angular-route.js"></script>
 		<script src="src/contacts.js"></script>
 		<script src="src/contactManager.js"></script>
 		<script src="src/contactRepository.js"></script>
@@ -17,7 +18,6 @@
 		<script src="src/contactAdd.js"></script>
 		<link rel="stylesheet" href="node_modules/angular-material/angular-material.css"/>
 	</head>
-	<body ng-app="contacts">
-		<contact-manager></contact-manager>
+	<body ng-app="contacts" ng-view>
 	</body>
 </html>

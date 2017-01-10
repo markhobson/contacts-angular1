@@ -1,7 +1,5 @@
 angular.module('contacts', ['ngMaterial', 'ngMessages', 'ui.router'])
-	.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
-		$urlRouterProvider.when('', '/');
-		
+	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 		$stateProvider
 			.state({
 				name: 'contacts',
@@ -18,4 +16,6 @@ angular.module('contacts', ['ngMaterial', 'ngMessages', 'ui.router'])
 					}]
 				}
 			});
+		
+		$urlRouterProvider.otherwise('/');
 	}]);

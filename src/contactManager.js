@@ -1,13 +1,13 @@
 angular.module('contacts')
 	.component('contactManager', {
 		templateUrl: 'src/contactManager.html',
-		controller: ['contactRepository', '$mdDialog', '$mdToast', '$scope', function(contactRepository, $mdDialog, $mdToast, $scope) {
+		controller: ['contactRepository', '$mdDialog', '$mdToast', '$scope', '$state', function(contactRepository, $mdDialog, $mdToast, $scope, $state) {
 			var ctrl = this;
 			$scope.$watch(contactRepository.getAll, function(newValue) {
 				ctrl.contacts = newValue;
 			}, true);
 			this.select = function(contact) {
-				this.selectedContact = contact;
+				$state.go('contact', {contactId: contact.id});
 			};
 			this.add = function() {
 				var contact = {};
@@ -37,7 +37,7 @@ angular.module('contacts')
 			};
 			this.$onInit = function() {
 				var contact = contactRepository.get(this.contactId);
-				this.select(contact);
+				this.selectedContact = contact;
 			};
 		}],
 		bindings: {

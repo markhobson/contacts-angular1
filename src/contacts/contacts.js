@@ -4,7 +4,7 @@ angular.module('contacts', ['ngMaterial', 'ngMessages', 'ui.router'])
 		
 		$stateProvider
 			.state({
-				name: 'main',
+				name: 'contacts',
 				url: '/',
 				component: 'contactManager'
 			})

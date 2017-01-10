@@ -1,6 +1,6 @@
 angular.module('contacts')
 	.component('contactAdd', {
-		templateUrl: 'src/contactAdd.html',
+		templateUrl: 'src/contacts/contactAdd.html',
 		bindings: {
 			onAdd: '&'
 		}

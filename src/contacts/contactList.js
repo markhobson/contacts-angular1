@@ -1,6 +1,6 @@
 angular.module('contacts')
 	.component('contactList', {
-		templateUrl: 'src/contactList.html',
+		templateUrl: 'src/contacts/contactList.html',
 		bindings: {
 			contacts: '<',
 			selectedContact: '<',

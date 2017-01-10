@@ -1,6 +1,6 @@
 angular.module('contacts')
 	.component('contactManager', {
-		templateUrl: 'src/contactManager.html',
+		templateUrl: 'src/contacts/contactManager.html',
 		controller: ['contactRepository', '$mdToast', '$scope', '$state', function(contactRepository, $mdToast, $scope, $state) {
 			this.$onInit = function() {
 				var ctrl = this;

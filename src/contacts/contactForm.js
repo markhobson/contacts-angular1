@@ -1,6 +1,6 @@
 angular.module('contacts')
 	.component('contactForm', {
-		templateUrl: 'src/contactForm.html',
+		templateUrl: 'src/contacts/contactForm.html',
 		controller: ['$mdDialog', function($mdDialog) {
 			var ctrl = this;
 			

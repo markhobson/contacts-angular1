@@ -10,19 +10,23 @@ angular.module('contacts')
 				var contact = contactRepository.get(this.contactId);
 				this.selectedContact = contact;
 			};
+			
 			this.select = function(contact) {
 				$state.go('contact', {contactId: contact.id});
 			};
+			
 			this.add = function() {
 				var contact = {};
 				contactRepository.add(contact);
 				this.select(contact);
 			};
+			
 			this.save = function(contact) {
 				contactRepository.save(contact);
 				this.select(contact);
 				$mdToast.showSimple((contact.name || 'Unnamed') + ' saved');
 			};
+			
 			this.delete = function(contact) {
 				contactRepository.delete(contact);
 				this.select();

@@ -1,7 +1,7 @@
 angular.module('contacts')
 	.component('contactForm', {
 		templateUrl: 'src/contactForm.html',
-		controller: function() {
+		controller: ['$mdDialog', function($mdDialog) {
 			var ctrl = this;
 			var edit = function(contact) {
 				ctrl.editableContact = angular.copy(contact);
@@ -14,9 +14,19 @@ angular.module('contacts')
 				edit(this.editableContact);
 			};
 			this.delete = function() {
-				this.onDelete({contact: this.editableContact});
+				var dialog = $mdDialog.confirm()
+					.title('Delete ' + (this.editableContact.name || 'Unnamed'))
+					.textContent('Are you sure?')
+					.ok('Delete')
+					.cancel('Cancel');
+
+				$mdDialog.show(dialog).then(function() {
+					ctrl.onDelete({contact: ctrl.editableContact});
+				}).catch(function() {
+					// no-op
+				});
 			};
-		},
+		}],
 		bindings: {
 			contact: '<',
 			onSave: '&',

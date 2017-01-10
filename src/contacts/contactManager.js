@@ -36,4 +36,22 @@ angular.module('contacts')
 		bindings: {
 			contactId: '<'
 		}
-	});
+	})
+	.config(['$stateProvider', function($stateProvider) {
+		$stateProvider
+			.state({
+				name: 'contacts',
+				url: '/',
+				component: 'contactManager'
+			})
+			.state({
+				name: 'contact',
+				url: '/contact/:contactId',
+				component: 'contactManager',
+				resolve: {
+					contactId: ['$stateParams', function($stateParams) {
+						return $stateParams.contactId;
+					}]
+				}
+			});
+	}]);

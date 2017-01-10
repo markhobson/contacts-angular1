@@ -13,8 +13,8 @@ angular.module('contacts', ['ngMaterial', 'ngMessages', 'ui.router'])
 				url: '/contact/:contactId',
 				component: 'contactManager',
 				resolve: {
-					contactId: ['$transition$', function($transition$) {
-						return $transition$.params().contactId;
+					contactId: ['$stateParams', function($stateParams) {
+						return $stateParams.contactId;
 					}]
 				}
 			});

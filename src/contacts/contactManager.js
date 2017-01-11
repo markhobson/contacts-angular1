@@ -15,6 +15,10 @@ angular.module('contacts')
 				$state.go('contact', {contactId: contact.id});
 			};
 			
+			this.unselect = function() {
+				$state.go('contacts');
+			};
+			
 			this.add = function() {
 				var contact = {};
 				contactRepository.add(contact);
@@ -23,13 +27,13 @@ angular.module('contacts')
 			
 			this.save = function(contact) {
 				contactRepository.save(contact);
-				this.select(contact);
+				this.selectedContact = contact;
 				$mdToast.showSimple((contact.name || 'Unnamed') + ' saved');
 			};
 			
 			this.delete = function(contact) {
 				contactRepository.delete(contact);
-				this.select();
+				this.unselect();
 				$mdToast.showSimple((contact.name || 'Unnamed') + ' deleted');
 			};
 		}],
